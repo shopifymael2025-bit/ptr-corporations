@@ -121,6 +121,9 @@ h2{font:700 clamp(28px,4vw,42px)/1.1 var(--display);letter-spacing:-.02em}
 .notes ol{padding-left:20px;color:var(--t2);font-size:14.5px}
 .notes li{margin-bottom:6px}
 .notes p.why{margin-top:14px;font-size:13px;color:var(--t3)}
+.notes section:target{border-color:var(--accent)}
+.help{margin-top:10px;font-size:13px;color:var(--t3)}
+.help a{color:var(--soft);text-decoration:underline;text-underline-offset:3px}
 code{display:block;margin-top:8px;background:#000;border:1px solid var(--line2);border-radius:8px;padding:10px 12px;font:12.5px ui-monospace,Menlo,Consolas,monospace;color:#c4b5fd;overflow-x:auto;white-space:nowrap;user-select:all}
 footer{margin-top:96px;border-top:1px solid var(--line);padding:28px 0 40px;font-size:13px;color:var(--t3)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
@@ -269,12 +272,13 @@ footer a:hover{color:var(--t1)}
         <a class="btn btn-ghost" id="dl-mac" data-repo="latest" href="#" data-i18n="cta.mac">Download for macOS</a>
       </div>
       <p class="hero-meta" data-i18n="cta.meta">Free. Windows 10/11 64-bit, macOS 12 or later.</p>
+      <p class="help"><a href="#win-help" data-i18n="cta.winhelp">Windows warning?</a> &nbsp; <a href="#mac-help" data-i18n="cta.machelp">Mac won’t open it?</a></p>
     </div>
   </section>
 
   <section id="install">
     <div class="wrap notes">
-      <section>
+      <section id="win-help">
         <h3 data-i18n="win.h">Opening it on Windows</h3>
         <ol>
           <li data-i18n="win.1">Run the .exe installer and follow the steps.</li>
@@ -283,7 +287,7 @@ footer a:hover{color:var(--t1)}
         </ol>
         <p class="why" data-i18n="win.why">This appears because the app is free and not signed with a paid code-signing certificate. The build is the same one published on GitHub.</p>
       </section>
-      <section>
+      <section id="mac-help">
         <h3 data-i18n="mac.h">Opening it on a Mac</h3>
         <ol>
           <li data-i18n="mac.1">Open the .dmg and drag PTR Corporations into Applications.</li>
@@ -327,7 +331,7 @@ const I18N = {
     'f6.h':'No account','f6.p':'Install and go. Your key, your playtime and your settings stay in your user folder. English and French.',
     'src.h':'Where it looks.','src.p':'Only places on your own PC. The one thing that goes online is the cover search.',
     'src.steam':'Every library folder, all drives','src.epic':'Installed games','src.start.n':'Start Menu','src.start':'Programs and standalone games','src.sgdb':'Covers, free API key','src.gh':'Update check',
-    'cta.h':'Open it. Play.','cta.mac':'Download for macOS','cta.meta':'Free. Windows 10/11 64-bit, macOS 12 or later.',
+    'cta.h':'Open it. Play.','cta.mac':'Download for macOS','cta.meta':'Free. Windows 10/11 64-bit, macOS 12 or later.','cta.winhelp':'Windows warning?','cta.machelp':'Mac won’t open it?',
     'win.h':'Opening it on Windows','win.1':'Run the .exe installer and follow the steps.','win.2':'If Windows says it protected your PC, click More info, then Run anyway.','win.3':'Open PTR Corporations and press Scan games & apps.',
     'win.why':'This appears because the app is free and not signed with a paid code-signing certificate. The build is the same one published on GitHub.',
     'mac.h':'Opening it on a Mac','mac.1':'Open the .dmg and drag PTR Corporations into Applications.','mac.2':'Right-click the app, choose Open, then Open again. Only needed the first time.','mac.3':'If macOS says the app is damaged, run this in Terminal, then open it again:'
@@ -351,7 +355,7 @@ const I18N = {
     'f6.h':'Sans compte','f6.p':'Installe et c’est parti. Ta clé, ton temps de jeu et tes réglages restent dans ton dossier utilisateur. Français et anglais.',
     'src.h':'Où il cherche.','src.p':'Uniquement sur ton propre PC. La seule chose qui passe par Internet, c’est la recherche de jaquettes.',
     'src.steam':'Tous les dossiers de bibliothèque, tous disques','src.epic':'Jeux installés','src.start.n':'Menu Démarrer','src.start':'Programmes et jeux indépendants','src.sgdb':'Jaquettes, clé API gratuite','src.gh':'Vérification des mises à jour',
-    'cta.h':'Ouvre. Joue.','cta.mac':'Télécharger pour macOS','cta.meta':'Gratuit. Windows 10/11 64 bits, macOS 12 ou plus.',
+    'cta.h':'Ouvre. Joue.','cta.mac':'Télécharger pour macOS','cta.meta':'Gratuit. Windows 10/11 64 bits, macOS 12 ou plus.','cta.winhelp':'Avertissement Windows ?','cta.machelp':'Le Mac ne l’ouvre pas ?',
     'win.h':'Ouvrir l’app sur Windows','win.1':'Lance l’installateur .exe et suis les étapes.','win.2':'Si Windows indique qu’il a protégé ton PC, clique sur Informations complémentaires, puis Exécuter quand même.','win.3':'Ouvre PTR Corporations et clique sur Scanner jeux et apps.',
     'win.why':'Cet avertissement apparaît car l’app est gratuite et n’est pas signée avec un certificat payant. C’est le même build que celui publié sur GitHub.',
     'mac.h':'Ouvrir l’app sur Mac','mac.1':'Ouvre le .dmg et glisse PTR Corporations dans Applications.','mac.2':'Clique droit sur l’app, choisis Ouvrir, puis Ouvrir encore. Seulement la première fois.','mac.3':'Si macOS dit que l’app est endommagée, lance ceci dans le Terminal, puis rouvre-la :'
